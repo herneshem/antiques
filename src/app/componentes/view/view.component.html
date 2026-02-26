@@ -1,0 +1,138 @@
+<div class="contentview">
+    <div class="lateralview">
+        <div class="filters">
+            <div class="filter1">
+                <h5>Tipo de mueble</h5>
+                <label for="">
+                    <input type="checkbox" (change)="toggleCat('mesas')"> Mesas
+                </label><br>
+                <label for="">
+                    <input type="checkbox" (change)="toggleCat('sillas')"> Sillas
+                </label><br>
+                <label for="">
+                    <input type="checkbox" (change)="toggleCat('otros')"> Otros
+                </label>
+
+            </div>
+            <br>
+            <div class="filter2">
+                <h5>Precios</h5>
+                <span id="valorRango">{{minPrecio + " "}}</span>
+                <input type="range" [(ngModel)]="precio" value="50" step="1">
+                <span id="valorRango">{{" " + precio}}</span>
+            </div>
+            <br>
+            <div class="filter3">
+                <h5>Estilos</h5>
+                <label for="">
+                    <input type="checkbox"> Clásico
+                </label><br>
+                <label for="">
+                    <input type="checkbox"> Barroco
+                </label><br>
+                <label for="">
+                    <input type="checkbox"> Vintage
+                </label><br>
+                <label for="">
+                    <input type="checkbox"> Moderno
+                </label><br>
+                <label for="">
+                    <input type="checkbox"> Antiguo
+                </label>
+
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-3 cardgroup ">
+
+        <ng-container *ngFor="let producto of productos">
+            <div class="col" *ngIf="mostrarProducto(producto.categoria)" (click)="productoSeleccionado = producto">
+                <div class="card">
+                    <img [src]="producto.imagen" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{producto.nombre}}</h5>
+                        <p class="card-text">{{ producto.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 
+      
+            <div class="col" *ngIf="mostrarProducto(productos.categoria)">
+                <div class="card">
+                    <img src="/assets/mueb2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{productos.nombre}}</h5>
+                        <p class="card-text">Sillas de biblioteca antiguas, con encanto clásico y estructura robusta,
+                            perfectas
+                            para lectura o decoración vintage.</p>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col" *ngIf="mostrarProducto(productos.categoria)">
+                <div class="card">
+                    <img src="/assets/mueb3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{productos.nombre}}</h5>
+                        <p class="card-text">Mesita de noche antigua con diseño clásico, ideal para añadir un toque
+                            vintage
+                            y
+                            elegante a tu dormitorio.</p>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col" *ngIf="mostrarProducto(productos.categoria)">
+                <div class="card">
+                    <img src="/assets/mueb1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{productos.nombre}}</h5>
+                        <p class="card-text">Mesa de comedor grande, ideal para reuniones y familias, con amplio espacio
+                            y
+                            diseño elegante</p>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col" *ngIf="mostrarProducto(productos.categoria)">
+                <div class="card">
+                    <img src="/assets/mueb2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{productos.nombre}}</h5>
+                        <p class="card-text">Sillas de biblioteca antiguas, con encanto clásico y estructura robusta,
+                            perfectas
+                            para lectura o decoración vintage.</p>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col" *ngIf="mostrarProducto(productos.categoria)">
+                <div class="card">
+                    <img src="/assets/mueb3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{productos.nombre}}</h5>
+                        <p class="card-text">Mesita de noche antigua con diseño clásico, ideal para añadir un toque
+                            vintage
+                            y
+                            elegante a tu dormitorio.</p>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div> -->
+
+        </ng-container>
+        <app-details [producto]="productoSeleccionado" (cerrar)="productoSeleccionado = null">
+        </app-details>
+
+    </div>
+
+</div>

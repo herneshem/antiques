@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+}
+body .main {
+  height: 5rem;
+}
+body .main .content {
+  width: 100%;
+}
+body .main .content .banner {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(90deg, #887550, #a78b55);
+  align-items: center;
+}
+body .main .content .banner .textologo {
+  text-align: center;
+}
+body .main .content .banner .textologo h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 60px;
+  color: #D4AF37;
+  /* Dorado antiguo */
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+body .main .content .banner .carrito {
+  position: relative;
+}
+body .main .content .banner .carrito span:first-child {
+  font-size: large;
+  font-weight: 700;
+  position: absolute;
+  left: 0.75rem;
+  right: auto;
+  top: -0.75rem;
+}
+body .main .content .banner .carrito span:last-child {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 600;
+}
+body .main .content .banner .carrito span:last-child i.fi {
+  font-size: 2rem;
+  color: rgb(17, 214, 60);
+}
+
+.contentview {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.contentview .lateralview {
+  width: 100%;
+}
+.contentview .lateralview .filters {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 5rem);
+}
+.contentview .cardgroup .card {
+  padding: 1rem;
+}
+.contentview .cardgroup .card .card-body .card-text {
+  height: 5.75rem;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.detalle-card {
+  position: absolute;
+  top: 7rem;
+  background-color: #a78b55;
+  padding: 2rem;
+}
+.detalle-card img {
+  width: 100%;
+}/*# sourceMappingURL=styles.css.map */

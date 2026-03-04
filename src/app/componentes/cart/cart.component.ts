@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CartItem, CartService } from '../cart.service';
+import { CartItem, CartService } from '../../cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DetailsComponent } from "../details/details.component";
 
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DetailsComponent],
   templateUrl: './cart.component.html',
   styles: ``
 })
@@ -21,6 +22,7 @@ export class CartComponent implements OnInit {
     this.calcularTotal();   
   }
 
+  productoSeleccionado: CartItem | null = null;
   calcularTotal() {
     this.total = this.items.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
   }
@@ -31,12 +33,16 @@ export class CartComponent implements OnInit {
     this.calcularTotal();
   }
 
-    eliminarItem(item: CartItem) {
-    this.items = this.items.filter(i => i.productId !== item.productId);
-    this.cartService['items'] = this.items; // actualizar servicio
-    this.cartService['updateCounter']();       // actualizar contador en banner
-    this.calcularTotal();
+  eliminarItem(item: CartItem) {
+  this.items = this.items.filter(i => i.productId !== item.productId);
+  this.cartService['items'] = this.items; 
+  this.cartService['updateCounter']();       
+  this.calcularTotal();
+
+   if (this.productoSeleccionado?.productId === item.productId) {
+  this.productoSeleccionado = null;
   }
+}
 
   iniciarCompra() {
     alert('Redirigiendo a proceso de pago...');

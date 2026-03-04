@@ -102,6 +102,13 @@ body .main .content .banner .carrito span:last-child i.fi {
   margin: auto;
 }
 
+.cart-container {
+  position: absolute;
+  top: 7rem;
+  width: 100%;
+  padding: 2rem;
+}
+
 /* Tablets (iPad) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   body {

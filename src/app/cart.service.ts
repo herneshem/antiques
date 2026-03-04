@@ -20,15 +20,23 @@ export class CartService {
 
   addToCart(item: CartItem) {
     const existingItem = this.items.find(i => i.productId === item.productId);
+
     if (existingItem) {
       existingItem.cantidad += item.cantidad;
     } else {
       this.items.push(item);
     }
+
     this.updateCounter();
   }
 
-  getItems(){
+  remove(id: number) {
+    console.log("Se está intentando eliminar:", id);
+    this.items = this.items.filter(item => item.productId !== id);
+    this.updateCounter();
+  }
+
+  getItems() {
     return this.items;
   }
 
@@ -36,5 +44,5 @@ export class CartService {
     const totalItems = this.items.reduce((total, item) => total + item.cantidad, 0);
     this.cardCounter.next(totalItems);
   }
-  constructor() { }
+
 }

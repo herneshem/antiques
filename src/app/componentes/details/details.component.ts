@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CommonModule  } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CartItem, CartService } from '../../cart.service';
 
 
@@ -9,31 +9,37 @@ import { CartItem, CartService } from '../../cart.service';
   templateUrl: './details.component.html',
   styles: ``
 })
-export class DetailsComponent  {
+export class DetailsComponent {
 
-  
-  @Input () producto: any;
-  @Output () cerrar = new EventEmitter<void>();
 
-  cerrarMuestra(){
+  @Input() producto: any;
+  @Output() cerrar = new EventEmitter<void>();
+
+  cerrarMuestra() {
     this.cerrar.emit();
-    
+
   }
 
-  constructor(private CartService: CartService) { } 
+  constructor(private CartService: CartService) { }
   //Carrito con acceso al servicio
-  agregarAlCarrito(){
+  agregarAlCarrito() {
     // Lógica para agregar el producto al carrito
     const item: CartItem = {
       productId: this.producto.id,
-      nombre: this.producto.name,
-      precio: this.producto.price,
+      nombre: this.producto.nombre,
+      precio: this.producto.precio,
       imagen: this.producto.imagen,
       cantidad: 1
-    };     
+    };
 
     this.CartService.addToCart(item);
     this.cerrarMuestra();
+  }
+
+  eliminarDelCarrito() {
+     console.log("Botón eliminar pulsado", this.producto.id);
+    this.CartService.remove(this.producto.id);
+    this.cerrar.emit();
   }
 
 }

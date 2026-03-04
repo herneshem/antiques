@@ -1,10 +1,13 @@
 <!-- cart.component.html -->
 <div class="cart-container">
   <h2>Mi Cesta</h2>
+
+  <!-- Mensaje si el carrito está vacío -->
   <div *ngIf="items.length === 0">
     <p>Tu carrito está vacío.</p>
   </div>
   
+  <!-- Lista de productos -->
   <div *ngFor="let item of items" class="cart-item">
     <img [src]="item.imagen" alt="{{ item.nombre }}" width="80">
     <div>
@@ -12,11 +15,24 @@
       <p>Precio: {{ item.precio | currency }}</p>
       <input type="number" [(ngModel)]="item.cantidad" (ngModelChange)="calcularTotal()" min="1">
       <button (click)="eliminarItem(item)">Eliminar</button>
+      <!-- Botón para abrir el detalle -->
+      <button (click)="productoSeleccionado = item">Ver detalle</button>
     </div>
   </div>
 
+  <!-- Total y botón de compra -->
   <div *ngIf="items.length > 0" class="cart-total">
     <h3>Total: {{ total | currency }}</h3>
     <button (click)="iniciarCompra()">Comprar</button>
   </div>
 </div>
+
+<!-- Componente de detalle -->
+<app-details 
+  *ngIf="productoSeleccionado"
+  [producto]="productoSeleccionado" 
+  (cerrar)="
+    eliminarItem(productoSeleccionado); 
+    productoSeleccionado = null
+  ">
+</app-details>

@@ -130,9 +130,14 @@
             </div> -->
 
         </ng-container>
-        <app-details [producto]="productoSeleccionado" (cerrar)="productoSeleccionado = null">
-        </app-details>
+
 
     </div>
 
 </div>
+
+<app-details 
+  *ngIf="productoSeleccionado"
+  [producto]="productoSeleccionado" 
+  (cerrar)="productoSeleccionado = null">
+</app-details>

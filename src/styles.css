@@ -1,13 +1,16 @@
+@charset "UTF-8";
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
   padding: 0;
 }
 body .main {
-  height: 5rem;
+  height: 6rem;
 }
 body .main .content {
   width: 100%;
+  position: fixed;
+  z-index: 1;
 }
 body .main .content .banner {
   width: 100%;
@@ -45,6 +48,9 @@ body .main .content .banner .carrito span:last-child {
   font-size: x-large;
   font-weight: 600;
 }
+body .main .content .banner .carrito span:last-child a {
+  text-decoration: none;
+}
 body .main .content .banner .carrito span:last-child i.fi {
   font-size: 2rem;
   color: rgb(17, 214, 60);
@@ -65,6 +71,10 @@ body .main .content .banner .carrito span:last-child i.fi {
 }
 .contentview .cardgroup .card {
   padding: 1rem;
+  min-height: 21rem;
+}
+.contentview .cardgroup .card img {
+  height: 11rem;
 }
 .contentview .cardgroup .card .card-body .card-text {
   height: 5.75rem;
@@ -75,9 +85,113 @@ body .main .content .banner .carrito span:last-child i.fi {
 .detalle-card {
   position: absolute;
   top: 7rem;
-  background-color: #a78b55;
+  background-color: #ccc4b7;
   padding: 2rem;
 }
-.detalle-card img {
-  width: 100%;
+.detalle-card h2 {
+  text-align: center;
+}
+.detalle-card .contentDetail {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  justify-content: space-around;
+}
+.detalle-card .contentDetail img {
+  width: 80%;
+  display: flex;
+  margin: auto;
+}
+
+/* Tablets (iPad) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: lightgreen;
+  }
+  .contentview {
+    padding: 20px;
+    display: grid;
+  }
+  .contentview .card {
+    height: 100%;
+  }
+  .contentview .card img {
+    height: 10rem;
+  }
+}
+/* Smartphones */
+@media only screen and (max-width: 767px) {
+  body {
+    background-color: lightblue;
+  }
+  body .banner .textologo {
+    display: none;
+  }
+  body .banner .carrito span:first-child {
+    display: block !important;
+  }
+  body .banner .carrito span {
+    display: inline-block;
+    /* mantiene el span en línea */
+  }
+  body .banner .carrito span i {
+    display: inline;
+    /* muestra los iconos */
+  }
+  body .banner .carrito span:last-child {
+    color: transparent;
+    /* oculta el texto dentro del span */
+  }
+  body .banner .carrito span i {
+    color: inherit;
+    /* mantiene visible el icono */
+  }
+  body .contentview {
+    display: block;
+    padding: 0;
+  }
+  body .contentview .lateralview {
+    display: none;
+  }
+  body .contentview .cardgroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  body .contentview .cardgroup .col {
+    justify-content: center;
+    display: flex;
+  }
+  body .contentview .cardgroup .col .card {
+    width: 100%;
+    max-width: 18.75rem;
+    margin: 0.625rem;
+  }
+  body .contentview .cardgroup .col .card img {
+    height: 8rem;
+  }
+  .detalle-card {
+    position: fixed;
+    top: 5rem;
+    background-color: #ccc4b7;
+    padding: 1rem;
+  }
+  .detalle-card button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  .detalle-card h2 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .detalle-card .contentDetail {
+    display: block;
+  }
+  .detalle-card .contentDetail img {
+    display: block;
+    margin: auto;
+  }
+  .content {
+    padding: 0.625rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

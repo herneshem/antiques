@@ -4,8 +4,8 @@
       <div class="logo"><img src="/assets/iconm.png" alt=""></div>
       <div class="textologo"><h1>ANTIQUE’S</h1></div>
       <div class="carrito">
-        <span>0</span>
-        <span><i class="fi fi-br-shopping-cart"></i>Cestita</span>
+        <span>{{ cartCounter }}</span>
+        <span><a [routerLink]="['/cart']"><i class="fi fi-br-shopping-cart"></i> Cestita</a></span>
       </div>
     </div>
   </div>

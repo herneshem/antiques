@@ -4,12 +4,13 @@ body {
     padding: 0;
 
     .main {
-        height: 5rem;
-       
+        height: 6rem;
+
 
         .content {
             width: 100%;
-
+            position: fixed;
+            z-index: 1;
             .banner {
 
                 width: 100%;
@@ -49,7 +50,9 @@ body {
                         align-items: center;
                         font-size: x-large;
                         font-weight: 600;
-
+                        a{
+                            text-decoration: none;
+                        }
                         i.fi {
                             font-size: 2rem;
                             color: rgb(17, 214, 60);
@@ -85,6 +88,11 @@ body {
 
         .card {
             padding: 1rem;
+            min-height: 21rem;
+
+            img {
+                height: 11rem;
+            }
 
             .card-body {
                 .card-text {
@@ -100,12 +108,162 @@ body {
 
 // Seleccionado
 
-.detalle-card{
+.detalle-card {
     position: absolute;
     top: 7rem;
-    background-color: #a78b55;
+    background-color: #ccc4b7;
     padding: 2rem;
-    img{
-        width: 100%;
+
+    h2 {
+        text-align: center;
+    }
+
+    .contentDetail {
+        display: grid;
+        grid-template-columns: 60% 30%;
+        justify-content: space-around;
+
+        img {
+            width: 80%;
+            display: flex;
+            margin: auto;
+        }
+    }
+
+}
+
+
+// Carrito
+
+// .cart-container{
+//     position: absolute;
+//     top: 7rem;
+//     width: 100%;
+//     padding: 2rem;  
+// }
+
+
+/* Tablets (iPad) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        background-color: lightgreen;
+    }
+
+    .contentview {
+        padding: 20px;
+        display: grid;
+
+        .card {
+            height: 100%;
+
+            img {
+                height: 10rem;
+            }
+        }
+    }
+}
+
+
+/* Smartphones */
+@media only screen and (max-width: 767px) {
+    body {
+        background-color: lightblue;
+
+        .banner {
+            .textologo {
+                display: none;
+            }
+
+            .carrito {
+                span:first-child {
+                    display: block !important;
+                }
+
+                span {
+                    display: inline-block;
+                    /* mantiene el span en línea */
+                }
+
+                span i {
+                    display: inline;
+                    /* muestra los iconos */
+                }
+
+                span:last-child {
+                    color: transparent;
+                    /* oculta el texto dentro del span */
+                }
+
+                span i {
+                    color: inherit;
+                    /* mantiene visible el icono */
+                }
+            }
+
+        }
+
+        .contentview {
+            display: block;
+            padding: 0;
+
+            .lateralview {
+                display: none;
+            }
+
+            .cardgroup {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .col {
+                    justify-content: center;
+                    display: flex;
+
+                    .card {
+                        width: 100%;
+                        max-width: 18.75rem;
+                        margin: .625rem;
+
+                        img {
+                            height: 8rem
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    .detalle-card {
+        position: fixed;
+        top: 5rem;
+        background-color: #ccc4b7;
+        padding: 1rem;
+
+        button {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .contentDetail {
+            display: block;
+
+            img {
+
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+
+    .content {
+        padding: .625rem;
     }
 }

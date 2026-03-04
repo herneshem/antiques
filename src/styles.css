@@ -3,6 +3,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(218, 203, 184);
 }
 body .main {
   height: 6rem;
@@ -83,23 +84,32 @@ body .main .content .banner .carrito span:last-child i.fi {
 }
 
 .detalle-card {
-  position: absolute;
-  top: 7rem;
+  position: fixed;
+  top: 5rem;
   background-color: #ccc4b7;
   padding: 2rem;
+  height: calc(100% - 5rem);
+  display: grid;
 }
 .detalle-card h2 {
   text-align: center;
+  margin: auto;
+  width: 50%;
 }
 .detalle-card .contentDetail {
   display: grid;
   grid-template-columns: 60% 30%;
   justify-content: space-around;
+  padding: 2rem;
 }
 .detalle-card .contentDetail img {
   width: 80%;
   display: flex;
   margin: auto;
+}
+.detalle-card .contentDetail > button {
+  width: 50%;
+  margin: 1rem auto;
 }
 
 .cart-container {
@@ -108,12 +118,26 @@ body .main .content .banner .carrito span:last-child i.fi {
   width: 100%;
   padding: 2rem;
 }
+.cart-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.cart-container .cart-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart-container .cart-item .cart-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cart-container .cart-item .cart-item-image {
+  width: 50%;
+}
 
 /* Tablets (iPad) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  body {
-    background-color: lightgreen;
-  }
   .contentview {
     padding: 20px;
     display: grid;

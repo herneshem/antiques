@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(218, 203, 184);
 
     .main {
         height: 6rem;
@@ -11,6 +12,7 @@ body {
             width: 100%;
             position: fixed;
             z-index: 1;
+
             .banner {
 
                 width: 100%;
@@ -50,9 +52,11 @@ body {
                         align-items: center;
                         font-size: x-large;
                         font-weight: 600;
-                        a{
+
+                        a {
                             text-decoration: none;
                         }
+
                         i.fi {
                             font-size: 2rem;
                             color: rgb(17, 214, 60);
@@ -109,24 +113,34 @@ body {
 // Seleccionado
 
 .detalle-card {
-    position: absolute;
-    top: 7rem;
+    position: fixed;
+    top: 5rem;
     background-color: #ccc4b7;
     padding: 2rem;
+    height: calc(100% - 5rem);
+    display: grid;
 
     h2 {
         text-align: center;
+        margin: auto;
+        width: 50%;
     }
 
     .contentDetail {
         display: grid;
         grid-template-columns: 60% 30%;
         justify-content: space-around;
+        padding: 2rem;
 
         img {
             width: 80%;
             display: flex;
             margin: auto;
+        }
+
+        >button {
+            width: 50%;
+            margin: 1rem auto;
         }
     }
 
@@ -135,19 +149,38 @@ body {
 
 // Carrito
 
-.cart-container{
+.cart-container {
     position: absolute;
     top: 7rem;
     width: 100%;
-    padding: 2rem;  
+    padding: 2rem;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .cart-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .cart-item-image {
+            width: 50%;
+        }
+    }
 }
 
 
 /* Tablets (iPad) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    body {
-        background-color: lightgreen;
-    }
+    body {}
 
     .contentview {
         padding: 20px;

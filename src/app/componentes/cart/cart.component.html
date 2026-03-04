@@ -9,8 +9,8 @@
   
   <!-- Lista de productos -->
   <div *ngFor="let item of items" class="cart-item">
-    <img [src]="item.imagen" alt="{{ item.nombre }}" width="80">
-    <div>
+    <img [src]="item.imagen" alt="{{ item.nombre }}" class="cart-item-image">
+    <div class="cart-item-details">
       <h4>{{ item.nombre }}</h4>
       <p>Precio: {{ item.precio | currency }}</p>
       <input type="number" [(ngModel)]="item.cantidad" (ngModelChange)="calcularTotal()" min="1">
